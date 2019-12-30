@@ -1,0 +1,14 @@
+{
+  "name": "why-pptx",
+  "license": "MIT",
+  "tags": [
+    "pptx"
+  ],
+  "classPath": "src",
+  "contributors": [
+    "kevinresol"
+  ],
+  "releasenote": "initial release",
+  "version": "0.0.0",
+  "dependencies": {}
+}
