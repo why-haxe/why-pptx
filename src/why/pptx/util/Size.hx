@@ -1,6 +1,6 @@
 package why.pptx.util;
 
 typedef Size = {
-	w:Point,
-	h:Point,
+	final w:Point;
+	final h:Point;
 }

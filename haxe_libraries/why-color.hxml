@@ -1,0 +1,3 @@
+-D why-color=0.0.0
+# @install: lix --silent download "gh://github.com/why-haxe/why-color#693e73cd7f137df9e591b48b73eb19c6f7ae2907" into why-color/0.0.0/github/693e73cd7f137df9e591b48b73eb19c6f7ae2907
+-cp ${HAXE_LIBCACHE}/why-color/0.0.0/github/693e73cd7f137df9e591b48b73eb19c6f7ae2907/src

@@ -1,3 +1,3 @@
 package why.pptx.util;
 
-typedef Color = String;
+typedef Color = why.color.Rgb;

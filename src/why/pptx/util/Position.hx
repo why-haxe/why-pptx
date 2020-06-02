@@ -1,6 +1,6 @@
 package why.pptx.util;
 
 typedef Position = {
-	x:Point,
-	y:Point,
+	final x:Point;
+	final y:Point;
 }

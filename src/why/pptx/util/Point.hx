@@ -7,5 +7,6 @@ abstract Point(Float) from Float to Float {
 	public inline function toInch():Float return this / 72;
 	public inline function toPoint():Float return this;
 	
-	@:op(a-b) function sub(b:Float):Float;
+	@:op(-a) function neg():Point;
+	@:op(a-b) function sub(b:Point):Point;
 }

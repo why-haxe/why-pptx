@@ -13,14 +13,14 @@ class PowerPoint {
 		for (master in def.masters) {
 			pptx.defineSlideMaster({
 				title: master.name,
-				bkgd: 'FFFFFF',
+				bkgd: master.background.toHex(),
 				objects: [
 					for (object in master.objects)
 						switch object {
 							case Image(def):
 								{
 									image: {
-										data: '${def.mime};base64,${haxe.crypto.Base64.encode(def.data)}',
+										data: def.image.toDataUrl(),
 										x: def.layout.x.toInch(),
 										y: def.layout.y.toInch(),
 										w: def.layout.w.toInch(),
@@ -45,8 +45,8 @@ class PowerPoint {
 											fontSize: def.size.toPoint(),
 											align: def.align.horizonal,
 											valign: def.align.vertical,
-											color: def.color,
-											glow: def.glow,
+											color: def.color.toHex(),
+											glow: {color: def.glow.color.toHex(), size: def.glow.size, opacity: def.glow.opacity},
 											margin: [def.margin.l.toPoint(), def.margin.r.toPoint(), def.margin.b.toPoint(), def.margin.t.toPoint()],
 										}
 									}
@@ -66,8 +66,8 @@ class PowerPoint {
 											fontSize: def.size.toPoint(),
 											align: def.align.horizonal,
 											valign: def.align.vertical,
-											color: def.color,
-											glow: def.glow,
+											color: def.color.toHex(),
+											glow: {color: def.glow.color.toHex(), size: def.glow.size, opacity: def.glow.opacity},
 											margin: [def.margin.l.toPoint(), def.margin.r.toPoint(), def.margin.b.toPoint(), def.margin.t.toPoint()],
 										},
 									}
@@ -109,6 +109,7 @@ enum SlideObjectType {
 
 typedef MasterDef = {
 	name:String,
+	background:Color,
 	objects:Array<MasterObjectType>,
 }
 
@@ -146,8 +147,7 @@ typedef PlaceholderDef = TextDef & {
 };
 
 typedef ImageDef = ObjectDef & {
-	mime:String,
-	data:haxe.io.Bytes,
+	image:Image,
 	sizing:ImageSizing,
 }
 
